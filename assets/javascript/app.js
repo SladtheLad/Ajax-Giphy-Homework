@@ -1,13 +1,8 @@
 // Initial array of movies
 var movies = ["Dark Crystal", "The Matrix", "Blade Runner", "Alien", "Star Wars", "Star Trek", "The Fifth Element"];
+console.log(movies);
 
 
-// Generic function for capturing the movie name from the data-attribute
-function alertMovieName() {
-    var movieName = $(this).attr("data-name");
-
-    alert(movieName);
-}
 
 // Function for displaying movie data
 function renderButtons() {
@@ -39,11 +34,11 @@ $("#add-movie").on("click", function (event) {
     // Preventing the buttons default behavior when clicked (which is submitting a form)
     event.preventDefault();
     // This line grabs the input from the textbox
-    var movie = $("#movie-input").val().trim();
+    var movieInput = $("#movie-input").val().trim();
 
     // Adding the movie from the textbox to our array
-    movies.push(movie);
-
+    movies.push(movieInput);
+    console.log(movies);
     // Calling renderButtons which handles the processing of our movie array
     renderButtons();
 
@@ -56,7 +51,7 @@ $("button").on("click", function () {
 
     // Constructing a queryURL using the animal name
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        movie + "&api_key=R1AvYMPhRU32sllboEiuXybJM9CJydmO&limit=10";
+        movie + "&api_key=dc6zaTOxFJmzC&limit=10";
 
     // Performing an AJAX request with the queryURL
     $.ajax({
