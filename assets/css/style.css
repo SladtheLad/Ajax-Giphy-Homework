@@ -1,0 +1,18 @@
+.movie {
+    border: 5px solid transparent;
+    font-size: 40px;
+    padding: 12px 20px;
+    background-color: black;
+    color: yellow;
+    border-radius: 15px;
+}
+
+.movie-success {
+    border-color: #8a6d3b;
+}
+
+.movie:hover {
+    background-color: orange;
+    color: black; 
+    border-color: #8a6d3b;
+}
