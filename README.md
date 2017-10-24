@@ -1,1 +1,1 @@
-# Ajax-Giphpy-Homework
+# Ajax-Giphy-Homework
