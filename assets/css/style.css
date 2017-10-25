@@ -2,23 +2,31 @@ body, html {
     height: 100%;
     margin: 0;
     font-size: 30px;
-    font-family: 'Federo', sans-serif;
+    font-family: 'Space Mono', monospace;
     color: #acf184;
     font-weight: 700;
-
 }
 
 .content {
-      position: absolute;
-
-      top: 100%;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.7);
+        background: url(../images/space.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow: auto;
 }
 
 .movie {
-    border: 5px solid transparent;
+    border: 5px solid #5a7e44;
     font-size: 20px;
     padding: 12px 20px;
-    background-color: black;
+    background-color: rgb(1, 75, 65);
     color: yellow;
     border-radius: 15px;
 }
@@ -28,9 +36,9 @@ body, html {
 }
 
 .movie:hover {
-    background-color: orange;
-    color: black; 
-    border-color: #8a6d3b;
+    background-color: rgb(29, 18, 1);
+    color: rgb(252, 235, 7); 
+    border-color: #e7b77a;
 }
 
 #bg { 
@@ -42,4 +50,9 @@ body, html {
     background-size: cover;
     background-attachment: fixed;
     position: absolute;
+}
+
+img {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
