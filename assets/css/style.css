@@ -1,6 +1,22 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-size: 30px;
+    font-family: 'Federo', sans-serif;
+    color: #acf184;
+    font-weight: 700;
+
+}
+
+.content {
+      position: absolute;
+
+      top: 100%;
+}
+
 .movie {
     border: 5px solid transparent;
-    font-size: 40px;
+    font-size: 20px;
     padding: 12px 20px;
     background-color: black;
     color: yellow;
@@ -15,4 +31,15 @@
     background-color: orange;
     color: black; 
     border-color: #8a6d3b;
+}
+
+#bg { 
+    background-image: url("../images/landscape.jpg");
+    height: 100%; 
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
 }

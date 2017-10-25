@@ -1,5 +1,5 @@
 // Initial array of movies
-var movies = ["Dark Crystal", "The Matrix", "Blade Runner", "Alien", "Star Wars", "Star Trek", "The Fifth Element"];
+var movies = ["Snowpiercer", "Dark Crystal", "The Matrix", "Blade Runner", "Alien", "Star Wars", "Star Trek", "The Fifth Element"];
 console.log(movies);
 
 
@@ -20,13 +20,14 @@ function renderButtons() {
         // Adding a class of movie to our button
         a.addClass("movie");
         // Adding a data-attribute
-        a.attr("data-name", movies[i]);
+        a.attr("data-movie-name", movies[i]);
         // Providing the initial button text
         a.text(movies[i]);
         // Adding the button to the HTML
         $("#movie-buttons").append(a);
+
     }
-}
+};
 
 
 // This function handles events where one button is clicked
@@ -45,50 +46,72 @@ $("#add-movie").on("click", function (event) {
 });
 
 // Adding click event listen listener to all buttons
-$("button").on("click", function () {
-    // Grabbing and storing the data-animal property value from the button
-    var movie = $(this).attr("data-name");
+// Event listener for all button elements
+$(document).on("click", "button", function () {
+    // In this case, the "this" keyword refers to the button that was clicked
+    var movie = $(this).attr("data-movie-name");
 
-    // Constructing a queryURL using the animal name
+    // Constructing a URL to search Giphy for the name of the person who said the quote
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         movie + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-    // Performing an AJAX request with the queryURL
+    // Performing our AJAX GET request
     $.ajax({
         url: queryURL,
         method: "GET"
     })
-        // After data comes back from the request
+        // After the data comes back from the API
         .done(function (response) {
-            console.log(queryURL);
-
-            console.log(response);
-            // storing the data from the AJAX request in the results variable
+            // Storing an array of results in the results variable
             var results = response.data;
-
-            // Looping through each result item
+            console.log(results);
+            // Looping over every result item
             for (var i = 0; i < results.length; i++) {
 
-                // Creating and storing a div tag
-                var movieDiv = $("<div>");
+                // Only taking action if the photo has an appropriate rating
+                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                    // Creating a div with the class "item"
+                    var gifDiv = $("<div class='item'>");
 
-                // Creating a paragraph tag with the result item's rating
-                var p = $("<p>").text("Rating: " + results[i].rating);
+                    // Storing the result item's rating
+                    var rating = results[i].rating;
 
-                // Creating and storing an image tag
-                var movieImage = $("<img>");
-                // Setting the src attribute of the image to a property pulled off the result item
-                movieImage.attr("src", results[i].images.fixed_height.url);
+                    // Creating a paragraph tag with the result item's rating
+                    var p = $("<p>").text("Rating: " + rating);
 
-                // Appending the paragraph and image tag to the animalDiv
-                movieDiv.append(p);
-                movieDiv.append(movieImage);
+                    // Creating an image tag
+                    var movieImage = $("<img>");
 
-                // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-                $("#gifs-appear-here").prepend(movieDiv);
+                    // Giving the image tag an src attribute of a proprty pulled off the
+                    // result item
+                    movieImage.attr("src", results[i].images.fixed_height_still.url);
+                    movieImage.attr("data-still", results[i].images.fixed_height_still.url);
+                    movieImage.attr("data-animate", results[i].images.fixed_height.url);
+
+                    // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                    gifDiv.append(p);
+                    gifDiv.append(movieImage);
+
+                    // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+                    $("#gifs-appear-here").prepend(gifDiv);
+                }
             }
         });
 });
 
+$(document).on("click", "img", function () {
+    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+    var state = $(this).attr("data-state");
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    // Then, set the image's data-state to animate
+    // Else set src to the data-still value
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
