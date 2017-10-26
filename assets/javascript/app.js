@@ -1,5 +1,5 @@
 // Initial array of movies
-var movies = ["Snowpiercer", "Dark Crystal", "The Matrix", "Blade Runner", "Alien", "Star Wars", "Star Trek", "The Fifth Element"];
+var movies = ["The Dark Crystal", "The Matrix", "Blade Runner", "Alien", "Star Wars", "Star Trek", "The Fifth Element", "Snowpiercer", "2001: A Space Oddyssey"];
 console.log(movies);
 
 

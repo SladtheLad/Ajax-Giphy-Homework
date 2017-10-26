@@ -4,7 +4,16 @@ body, html {
     font-size: 30px;
     font-family: 'Space Mono', monospace;
     color: #acf184;
-    font-weight: 700;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+h1 {
+        font-weight: 700;
 }
 
 .content {
@@ -20,6 +29,10 @@ body, html {
         left: 0;
         bottom: 0;
         overflow: auto;
+}
+
+form {
+    margin-top: 50px;
 }
 
 .movie {
@@ -53,6 +66,6 @@ body, html {
 }
 
 img {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
