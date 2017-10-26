@@ -42,6 +42,7 @@ form {
     background-color: rgb(1, 75, 65);
     color: yellow;
     border-radius: 15px;
+    box-shadow: 10px 10px 5px #d0d0d0;
 }
 
 .movie-success {
@@ -52,6 +53,7 @@ form {
     background-color: rgb(29, 18, 1);
     color: rgb(252, 235, 7); 
     border-color: #e7b77a;
+    box-shadow: 10px 10px 5px #000000;
 }
 
 #bg { 
