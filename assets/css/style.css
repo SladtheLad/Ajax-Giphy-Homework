@@ -35,9 +35,16 @@ form {
     margin-top: 50px;
 }
 
+#movie-buttons {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background-color: rgba(0, 0, 0, .7);
+}
+
 .movie {
     border: 5px solid #5a7e44;
     font-size: 20px;
+    margin-right: 5px;
     padding: 12px 20px;
     background-color: rgb(1, 75, 65);
     color: yellow;
@@ -69,6 +76,7 @@ form {
 
 #gifs-appear-here {
     max-width: 1200px;
+
 }
 
 .item {
